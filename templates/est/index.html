@@ -1,0 +1,40 @@
+{% include 'header.html' %}
+
+<br>
+<a href="{{url_for("create")}}" class="btn btn-success" >
+
+    Ingresar nueva Asignatura
+</a>
+
+
+    <table class="table table-light">
+        <thead class="thead-light">
+            <tr>
+                <th>Id</th>
+                <th>Asignatura</th>
+                <th>Programa</th>
+                <th>Calificacion</th>
+                <th>Profesor</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for estudiantes in estudiantes %}
+    
+            <tr>
+                <td>{{estudiantes[0]}}</td>
+                <td>{{estudiantes[1]}}</td>
+                <td>{{estudiantes[5]}}</td>
+                <td>{{estudiantes[4]}}</td>
+                <td>{{estudiantes[2]}}</td>
+                <td><a href="/edit/{{estudiantes[0]}}"class="btn btn-warning">Editar</a>
+                    <a class="btn btn-danger" href="/destroy/{{estudiantes[0]}}"> Retirar</a>
+                     </td>
+            </tr>
+            
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+{% include 'footer.html' %}

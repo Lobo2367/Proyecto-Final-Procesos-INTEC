@@ -1,0 +1,54 @@
+{% include 'header.html' %}
+
+{% for estudiante in  estudiantes %}
+    
+<form method="post" action="/update" enctype="multipart/form-data">
+    
+    <div class="card">
+        <div class="card-header">
+            Editar Asignatura
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Datos de la Asignatura</h5>
+            
+            
+            <p class="card-text">
+
+                <div class="form-group">
+                    <label for="txtNombre"> Asignatura</label>
+                    <input id="txtNombre" value="{{estudiante[1]}}" class="form-control" type="text" name="txtNombre">
+                </div>
+
+                <div class="form-group">
+                    <label for="txtCorreo">Profesor</label>
+                    <input id="txtCorreo" value="{{estudiante[2]}}" class="form-control" type="text" name="txtCorreo">
+                </div>
+
+                <div class="form-group">
+                    <label for="txtMateria">Calificación</label>
+                    <input id="txtMateria" value="{{estudiante[4]}}" class="form-control" type="text" name="txtMateria">
+                </div>
+
+                <div class="form-group">
+                    <label for="txtFoto">Programa</label>
+                    <input id="txtFoto" value="{{estudiante[3]}}" class="form-control" type="file" name="txtFoto">
+                </div>
+
+                <input type="hidden" value="{{ estudiante[0] }}" name="txtID" id="txtID">
+                <br>
+
+                <div class="form-group">
+                    <input type="submit" class='btn btn-success' value="Agregar">
+                    <a href='{{url_for("index")}}' class="btn btn-primary">Regresar</a>
+                </div>
+            
+            </p>
+        </div>
+    </div>
+    
+    
+
+</form>
+{% endfor %}
+
+{% include 'footer.html' %}
